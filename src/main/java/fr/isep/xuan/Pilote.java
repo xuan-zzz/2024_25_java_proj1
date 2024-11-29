@@ -1,8 +1,8 @@
 package fr.isep.xuan;
 
 public class Pilote extends Employe{
-    String licence;
-    int heuresDeVol;
+    private String licence;
+    private int heuresDeVol;
 
     Pilote(String nom, String adresse, String contacte,
            int numeroEmploye, String dateEmbauche,
@@ -17,5 +17,24 @@ public class Pilote extends Employe{
         return super.toString() +
                 "\nLicence:" + licence +
                 "\nHeures de Vol: " + heuresDeVol;
+    }
+
+    @Override
+    String obtenirRole() { return "Pilote"; }
+
+    public int getHeuresDeVol() {
+        return heuresDeVol;
+    }
+
+    public String getLicence() {
+        return licence;
+    }
+
+    public void setHeuresDeVol(int heuresDeVol) {
+        this.heuresDeVol = heuresDeVol;
+    }
+
+    public void setLicence(String licence) {
+        this.licence = licence;
     }
 }

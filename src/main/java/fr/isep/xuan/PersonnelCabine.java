@@ -1,7 +1,7 @@
 package fr.isep.xuan;
 
 public class PersonnelCabine extends Employe{
-    String qualification;
+    private String qualification;
 
     PersonnelCabine(String identifiant, String nom, String adresse,
            String contacte, int numeroEmploye, String dateEmbauche,
@@ -14,5 +14,16 @@ public class PersonnelCabine extends Employe{
     public String toString() {
         return super.toString() +
                 "\nQualification:" + qualification;
+    }
+
+    @Override
+    String obtenirRole() { return "Personnel de Cabine"; }
+
+    public void setQualification(String qualification) {
+        this.qualification = qualification;
+    }
+
+    public String getQualification() {
+        return qualification;
     }
 }
