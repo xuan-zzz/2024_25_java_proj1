@@ -6,8 +6,7 @@ public abstract class Personne {
     String adresse;
     String contacte;
 
-    Personne(String identifiant, String nom, String adresse,
-             String contacte){
+    Personne(String identifiant, String nom, String adresse, String contacte){
         this.identifiant = identifiant;
         this.nom = nom;
         this.adresse = adresse;
@@ -16,9 +15,9 @@ public abstract class Personne {
 
     @Override
     public String toString() {
-        return "Identifiant:'" + identifiant + '\'' +
-                "\nNom:'" + nom + '\'' +
-                "\nAdresse:'" + adresse + '\'' +
+        return "Identifiant:'" + identifiant +
+                "\nNom:'" + nom +
+                "\nAdresse:'" + adresse +
                 "\nContacte:'" + contacte;
     }
 
