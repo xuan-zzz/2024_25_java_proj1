@@ -9,6 +9,7 @@ public class Aeroport {
         this.nom = nom;
         this.ville = ville;
         this. description = description;
+        System.out.println();
     }
 
     public String getNom() {
