@@ -1,5 +1,7 @@
 package fr.isep.xuan;
 
+import java.util.List;
+
 public class Aeroport {
     private String nom;
     private String ville;
@@ -9,7 +11,13 @@ public class Aeroport {
         this.nom = nom;
         this.ville = ville;
         this. description = description;
-        System.out.println();
+    }
+
+    void affecterVol(Vol v, Pilote p, List<PersonnelCabine> pc){
+        v.getEmployeMap().get("Pilotes").add(p);
+        for (PersonnelCabine e: pc){
+            v.getEmployeMap().get("Personnel de Cabine").add(e);
+        }
     }
 
     public String getNom() {
