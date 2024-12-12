@@ -13,6 +13,12 @@ public class Aeroport {
         this. description = description;
     }
 
+    Aeroport (String nom) {
+        this.nom = nom;
+        this.ville = nom;
+        this.description = "aucune description";
+    }
+
     void affecterVol(Vol v, Pilote p, List<PersonnelCabine> pc){
         v.getEmployeMap().get("Pilotes").add(p);
         for (PersonnelCabine e: pc){

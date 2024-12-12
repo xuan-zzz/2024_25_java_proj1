@@ -1,11 +1,13 @@
 package fr.isep.xuan;
 
+import java.time.LocalDate;
+
 public class Reservation {
     private int numeroReservation;
-    private String dateReservation;
+    private LocalDate dateReservation;
     private String statut;
 
-    Reservation(int numeroReservation, String dateReservation, String statut){
+    Reservation(int numeroReservation, LocalDate dateReservation, String statut){
         this.numeroReservation = numeroReservation;
         this.dateReservation = dateReservation;
         this.statut = statut;
@@ -15,7 +17,7 @@ public class Reservation {
         return numeroReservation;
     }
 
-    public String getDateReservation() {
+    public LocalDate getDateReservation() {
         return dateReservation;
     }
 
@@ -23,7 +25,7 @@ public class Reservation {
         return statut;
     }
 
-    public void setDateReservation(String dateReservation) {
+    public void setDateReservation(LocalDate dateReservation) {
         this.dateReservation = dateReservation;
     }
 

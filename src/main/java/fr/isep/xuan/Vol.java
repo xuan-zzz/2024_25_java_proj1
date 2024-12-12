@@ -1,49 +1,46 @@
 package fr.isep.xuan;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 
-import static fr.isep.xuan.Main.avionLibre;
+import static fr.isep.xuan.Main.avions;
 import static fr.isep.xuan.Main.volMap;
 
 public class Vol {
-    private int numeroVol;
+    private String numeroVol;
     private Aeroport origine;
     private Aeroport destination;
-    private String dateHeureDepart;
-    private String dateHeureArrivee;
+    private LocalDateTime date;
     private String etat;
     private Map<String, LinkedList<Employe>> employeMap;
     private Map<Integer, Passager> passagerMap;
     private Avion avion;
 
-    Vol(int numeroVol, Aeroport origine, Aeroport destination,
-        String dateHeureDepart, String dateHeureArrivee){
+    Vol(String numeroVol, Aeroport origine, Aeroport destination,
+        int jour, int mois, int heure, int minute){
         this.numeroVol = numeroVol;
         this.origine = origine;
         this.destination = destination;
-        this.dateHeureDepart = dateHeureDepart;
-        this.dateHeureArrivee = dateHeureArrivee;
         this.etat = "A l'heure";
         this.employeMap = new HashMap<String, LinkedList<Employe>>()    {{
             put("Pilotes", new LinkedList<Employe>());
             put("Personnel de Cabine", new LinkedList<Employe>());      }};
         this.passagerMap = new HashMap<Integer, Passager>();
-        avionLibre.getFirst().affecterVol(this);
+        //avions.getFirst().affecterVol(this);
+        this.date = LocalDateTime.of(2024, mois, jour, heure, minute);
+        //volMap.put(this.numeroVol, this);
     }
 
-    void modifierVol(String s){
-        this.etat = s;
+    void modifierVol(int minutes){
+        this.etat = "Retard de " + minutes + "min.";
+        date.plusMinutes(minutes);
     }
 
-    static void obtenirVol(int numeroVol){
+    static void obtenirVol(String numeroVol){
         Vol v = volMap.get(numeroVol);
         System.out.println("Numéro de vol: " + numeroVol);
         System.out.println("De " + v.origine.getNom() + " a " + v.destination.getNom());
-        System.out.println("Départ prévu à: " + v.getDateHeureDepart());
-        System.out.println("Arrivée prévue à: " + v.getDateHeureArrivee());
+        System.out.println("Départ prévu à: " + v.getDate());
         System.out.println(v.getEtat());
     }
 
@@ -65,28 +62,20 @@ public class Vol {
         return origine;
     }
 
-    public int getNumeroVol() {
+    public String getNumeroVol() {
         return numeroVol;
     }
 
-    public String getDateHeureArrivee() {
-        return dateHeureArrivee;
-    }
-
-    public String getDateHeureDepart() {
-        return dateHeureDepart;
+    public LocalDateTime getDate() {
+        return date;
     }
 
     public String getEtat() {
         return etat;
     }
 
-    public void setDateHeureArrivee(String dateHeureArrivee) {
-        this.dateHeureArrivee = dateHeureArrivee;
-    }
-
-    public void setDateHeureDepart(String dateHeureDepart) {
-        this.dateHeureDepart = dateHeureDepart;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public void setDestination(Aeroport destination) {
@@ -97,7 +86,7 @@ public class Vol {
         this.etat = etat;
     }
 
-    public void setNumeroVol(int numeroVol) {
+    public void setNumeroVol(String numeroVol) {
         this.numeroVol = numeroVol;
     }
 
