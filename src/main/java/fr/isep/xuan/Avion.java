@@ -1,5 +1,7 @@
 package fr.isep.xuan;
 
+import static fr.isep.xuan.Main.avionLibre;
+
 public class Avion {
     private int immatriculation;
     private String modele;
@@ -9,6 +11,13 @@ public class Avion {
         this.immatriculation =immatriculation;
         this. modele = modele;
         this.capacite = capacite;
+    }
+
+    void affecterVol(Vol v){
+        if (v.getAvion() != null){
+            avionLibre.add(v.getAvion());
+        }
+        v.setAvion(this);
     }
 
     public int getCapacite() {

@@ -20,6 +20,20 @@ public class Aeroport {
         }
     }
 
+    void affecterVol(Vol v, Pilote p){
+        v.getEmployeMap().get("Pilotes").add(p);
+    }
+
+    void affecterVol(Vol v, List<PersonnelCabine> pc){
+        for (PersonnelCabine e: pc){
+            v.getEmployeMap().get("Personnel de Cabine").add(e);
+        }
+    }
+
+    void affecterVol(Vol v, PersonnelCabine e){
+        v.getEmployeMap().get("Personnel de Cabine").add(e);
+    }
+
     public String getNom() {
         return nom;
     }

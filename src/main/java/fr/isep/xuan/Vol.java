@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import static fr.isep.xuan.Main.avionLibre;
 import static fr.isep.xuan.Main.volMap;
 
 public class Vol {
@@ -16,6 +17,7 @@ public class Vol {
     private String etat;
     private Map<String, LinkedList<Employe>> employeMap;
     private Map<Integer, Passager> passagerMap;
+    private Avion avion;
 
     Vol(int numeroVol, Aeroport origine, Aeroport destination,
         String dateHeureDepart, String dateHeureArrivee){
@@ -29,6 +31,11 @@ public class Vol {
             put("Pilotes", new LinkedList<Employe>());
             put("Personnel de Cabine", new LinkedList<Employe>());      }};
         this.passagerMap = new HashMap<Integer, Passager>();
+        avionLibre.getFirst().affecterVol(this);
+    }
+
+    void modifierVol(String s){
+        this.etat = s;
     }
 
     static void obtenirVol(int numeroVol){
@@ -46,7 +53,7 @@ public class Vol {
         }
     }
 
-    static void removeVol (Vol v){
+    static void annulerVol (Vol v){
         volMap.remove(v.getNumeroVol());
     }
 
@@ -112,5 +119,13 @@ public class Vol {
 
     public void setPassagerMap(Map<Integer, Passager> passagerMap) {
         this.passagerMap = passagerMap;
+    }
+
+    public Avion getAvion() {
+        return avion;
+    }
+
+    public void setAvion(Avion avion) {
+        this.avion = avion;
     }
 }
