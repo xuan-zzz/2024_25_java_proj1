@@ -1,12 +1,19 @@
 package fr.isep.xuan;
 
+import java.time.LocalDate;
+
 public class PersonnelCabine extends Employe{
     private String qualification;
 
-    PersonnelCabine(String identifiant, String nom, String adresse,
-           String contacte, int numeroEmploye, String dateEmbauche,
+    PersonnelCabine(){
+        super("Personnel de Cabine");
+        this.qualification = "Bac+3";
+    }
+
+    PersonnelCabine(String identifiant, String nom, String prenom, String adresse,
+           String contacte, int numeroEmploye, LocalDate dateEmbauche,
            String qualification){
-        super("Personnel de Cabine", nom, adresse, contacte, numeroEmploye, dateEmbauche);
+        super("Personnel de Cabine", nom, prenom, adresse, contacte, numeroEmploye, dateEmbauche);
         this.qualification = qualification;
     }
 

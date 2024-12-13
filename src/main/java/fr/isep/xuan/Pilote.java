@@ -1,13 +1,22 @@
 package fr.isep.xuan;
 
+import java.time.LocalDate;
+import java.util.Random;
+
 public class Pilote extends Employe{
-    private String licence;
+    private int licence;
     private int heuresDeVol;
 
-    Pilote(String nom, String adresse, String contacte,
-           int numeroEmploye, String dateEmbauche,
-           String licence, int heuresDeVol){
-        super("Pilote", nom, adresse, contacte, numeroEmploye, dateEmbauche);
+    Pilote(){
+        super("Pilote");
+        Random rdm = new Random();
+        this.licence = rdm.nextInt(100000000);
+        this.heuresDeVol = 1500 + rdm.nextInt(15000);
+    }
+
+    Pilote(String nom, String prenom, String adresse, String contacte,
+           int numeroEmploye, LocalDate dateEmbauche, int licence, int heuresDeVol){
+        super("Pilote", nom, prenom, adresse, contacte, numeroEmploye, dateEmbauche);
         this.licence = licence;
         this.heuresDeVol = heuresDeVol;
     }
@@ -26,7 +35,7 @@ public class Pilote extends Employe{
         return heuresDeVol;
     }
 
-    public String getLicence() {
+    public int getLicence() {
         return licence;
     }
 
@@ -34,7 +43,7 @@ public class Pilote extends Employe{
         this.heuresDeVol = heuresDeVol;
     }
 
-    public void setLicence(String licence) {
+    public void setLicence(int licence) {
         this.licence = licence;
     }
 }

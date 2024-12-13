@@ -1,12 +1,31 @@
 package fr.isep.xuan;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Random;
+
+import static fr.isep.xuan.Main.numEmploye;
+
 public abstract class Employe extends Personne {
     private int numeroEmploye;
-    private String dateEmbauche;
+    private LocalDate dateEmbauche;
 
-    Employe(String identifiant, String nom, String adresse, String contacte,
-            int numeroEmploye, String dateEmbauche){
-        super(identifiant, nom, adresse, contacte);
+    Employe(String identifiant){
+        super(identifiant);
+        Random rdm = new Random();
+        int rdmNumEmploye = rdm.nextInt(10000);
+        while (numEmploye.contains(rdmNumEmploye))
+            rdmNumEmploye = rdm.nextInt(10000);
+        this.numeroEmploye = rdmNumEmploye;
+        LocalDate start = LocalDate.of(2000, 1, 1);
+        LocalDate end = LocalDate.of(2024, 12, 1);
+        int days = (int) ChronoUnit.DAYS.between(start, end);
+        this.dateEmbauche = start.plusDays(rdm.nextInt(days));
+    }
+
+    Employe(String identifiant, String nom, String prenom, String adresse, String contacte,
+            int numeroEmploye, LocalDate dateEmbauche){
+        super(identifiant, nom, prenom, adresse, contacte);
         this.numeroEmploye = numeroEmploye;
         this.dateEmbauche = dateEmbauche;
     }
@@ -34,7 +53,7 @@ public abstract class Employe extends Personne {
         return numeroEmploye;
     }
 
-    public String getDateEmbauche() {
+    public LocalDate getDateEmbauche() {
         return dateEmbauche;
     }
 
@@ -42,7 +61,7 @@ public abstract class Employe extends Personne {
         this.numeroEmploye = numeroEmploye;
     }
 
-    public void setDateEmbauche(String dateEmbauche) {
+    public void setDateEmbauche(LocalDate dateEmbauche) {
         this.dateEmbauche = dateEmbauche;
     }
 }

@@ -7,10 +7,10 @@ public class Aeroport {
     private String ville;
     private String description;
 
-    Aeroport(String nom, String ville, String description){
+    Aeroport(String nom, String ville){
         this.nom = nom;
         this.ville = ville;
-        this. description = description;
+        this. description = "aucune description";
     }
 
     Aeroport (String nom) {

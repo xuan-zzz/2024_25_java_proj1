@@ -1,10 +1,11 @@
 package fr.isep.xuan;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.*;
 
-import static fr.isep.xuan.Main.avions;
-import static fr.isep.xuan.Main.volMap;
+import static fr.isep.xuan.Main.*;
 
 public class Vol {
     private String numeroVol;
@@ -13,8 +14,22 @@ public class Vol {
     private LocalDateTime date;
     private String etat;
     private Map<String, LinkedList<Employe>> employeMap;
-    private Map<Integer, Passager> passagerMap;
+    private Map<String, Passager> passagerMap;
     private Avion avion;
+
+    Vol(String numeroVol, Aeroport origine, Aeroport destination, LocalDateTime date){
+        this.numeroVol = numeroVol;
+        this.origine = origine;
+        this.destination = destination;
+        this.etat = "A l'heure";
+        this.date = date;
+        if (avionsLibres.isEmpty()) avionsLibres.add(new Avion());
+        avionsLibres.getFirst().affecterVol(this);
+        this.employeMap = new HashMap<String, LinkedList<Employe>>()    {{
+            put("Pilotes", new LinkedList<Employe>());
+            put("Personnel de Cabine", new LinkedList<Employe>());      }};
+        this.passagerMap = new HashMap<String, Passager>();
+    }
 
     Vol(String numeroVol, Aeroport origine, Aeroport destination,
         int jour, int mois, int heure, int minute){
@@ -25,10 +40,11 @@ public class Vol {
         this.employeMap = new HashMap<String, LinkedList<Employe>>()    {{
             put("Pilotes", new LinkedList<Employe>());
             put("Personnel de Cabine", new LinkedList<Employe>());      }};
-        this.passagerMap = new HashMap<Integer, Passager>();
-        //avions.getFirst().affecterVol(this);
+        this.passagerMap = new HashMap<String, Passager>();
+        if (avionsLibres.isEmpty()) avionsLibres.add(new Avion());
+        avionsLibres.getFirst().affecterVol(this);
         this.date = LocalDateTime.of(2024, mois, jour, heure, minute);
-        //volMap.put(this.numeroVol, this);
+        if (!volMap.containsKey(numeroVol)) volMap.put(this.numeroVol, this);
     }
 
     void modifierVol(int minutes){
@@ -36,12 +52,18 @@ public class Vol {
         date.plusMinutes(minutes);
     }
 
-    static void obtenirVol(String numeroVol){
-        Vol v = volMap.get(numeroVol);
-        System.out.println("Numéro de vol: " + numeroVol);
-        System.out.println("De " + v.origine.getNom() + " a " + v.destination.getNom());
-        System.out.println("Départ prévu à: " + v.getDate());
-        System.out.println(v.getEtat());
+    public void obtenirVol(){
+        System.out.println("Numéro de vol: " + this.numeroVol);
+        System.out.println("De " + this.origine.getVille() + " a " + this.destination.getVille());
+        DateTimeFormatter format = new DateTimeFormatterBuilder()
+                .appendPattern("dd MMMM") // Day and Month
+                .appendLiteral(", ") // Comma and space
+                .appendPattern("HH:mm") // Hour and minute
+                .toFormatter();
+        int placesRestantes = this.avion.getCapacite()-this.getPassagerMap().size();
+        System.out.println("Places restantes: " + placesRestantes + " sur " + this.avion.getCapacite());
+        System.out.println("Départ prévu à: " + format.format(this.getDate()));
+        System.out.println(this.getEtat());
     }
 
     static void planifierVol(List<Vol> lv){
@@ -50,8 +72,23 @@ public class Vol {
         }
     }
 
-    static void annulerVol (Vol v){
-        volMap.remove(v.getNumeroVol());
+    public void annulerVol (){
+        for (Employe e: this.employeMap.get("Pilotes")){
+            pilotes.add((Pilote) e);
+            this.employeMap.get("Pilotes").remove(e);
+        }
+        for (Employe e: this.employeMap.get("Personnel de Cabine")){
+            personnelCabines.add((PersonnelCabine) e);
+            this.employeMap.get("Personnel de Cabine").remove(e);
+        }
+        avionsLibres.add(this.getAvion());
+        volMap.remove(this.getNumeroVol());
+    }
+
+    public void ListingPassager(){
+        for (Passager p: this.passagerMap.values()){
+            System.out.println(p.getPasseport() + ", " + p.getNom() + ", " + p.getPrenom());
+        }
     }
 
     public Aeroport getDestination() {
@@ -102,11 +139,11 @@ public class Vol {
         this.employeMap = employeMap;
     }
 
-    public Map<Integer, Passager> getPassagerMap() {
+    public Map<String, Passager> getPassagerMap() {
         return passagerMap;
     }
 
-    public void setPassagerMap(Map<Integer, Passager> passagerMap) {
+    public void setPassagerMap(Map<String, Passager> passagerMap) {
         this.passagerMap = passagerMap;
     }
 
