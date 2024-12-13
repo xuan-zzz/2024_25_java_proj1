@@ -1,0 +1,96 @@
+Rue de la Paix
+Rue des Écoles
+Rue Victor Hugo
+Rue de la République
+Rue du Commerce
+Rue de Paris
+Rue de l'Église
+Rue Saint-Michel
+Rue de l'Hôtel de Ville
+Rue des Jardins
+Rue de la Liberté
+Rue du Château
+Rue des Lilas
+Rue de la Gare
+Rue Jean Jaurès
+Rue du Moulin
+Rue des Fleurs
+Rue Pasteur
+Rue de la Fontaine
+Rue des Roses
+Rue de Provence
+Rue de Bretagne
+Rue de Lorraine
+Rue d'Alsace
+Rue de Normandie
+Rue de l'Océan
+Rue de la Côte d'Azur
+Rue Montmartre
+Rue de Belleville
+Rue de la Plage
+Rue des Cerisiers
+Rue de la Forêt
+Rue de l'Avenir
+Rue de la Victoire
+Rue des Acacias
+Rue de la Rivière
+Rue de l'Étang
+Rue Saint-Honoré
+Rue de la Montagne
+Rue de la Mare
+Rue des Peupliers
+Rue des Chênes
+Rue des Pins
+Rue des Tilleuls
+Rue des Oliviers
+Rue de la Colline
+Rue des Mimosas
+Rue de la Campagne
+Rue des Violettes
+Rue des Coquelicots
+Rue du Cèdre
+Rue des Cyprès
+Rue des Magnolias
+Rue des Hortensias
+Rue des Champs
+Rue du Soleil
+Rue des Alouettes
+Rue des Hirondelles
+Rue des Fauvettes
+Rue des Merles
+Rue du Printemps
+Rue d'Automne
+Rue de l'Hiver
+Rue de l'Été
+Rue des Marronniers
+Rue du Pommier
+Rue des Vergers
+Rue des Ormes
+Rue de la Clairière
+Rue des Primevères
+Rue des Jonquilles
+Rue des Narcisses
+Rue des Papillons
+Rue du Lavoir
+Rue des Prés
+Rue des Granges
+Rue de la Ferme
+Rue des Vignes
+Rue du Bourg
+Rue des Cheminots
+Rue des Arènes
+Rue des Abbesses
+Rue du Couvent
+Rue Saint-Jacques
+Rue Saint-Louis
+Rue Notre-Dame
+Rue Sainte-Marie
+Rue Sainte-Anne
+Rue de la Fraternité
+Rue des Alliés
+Rue de la Citadelle
+Rue du Rempart
+Rue des Remparts
+Rue de la Tour
+Rue du Clocher
+Rue des Arcades

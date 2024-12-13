@@ -1,0 +1,95 @@
+London Heathrow
+Amsterdam Schiphol
+Frankfurt
+Madrid-Barajas
+Munich
+Barcelona-El Prat
+Rome Fiumicino
+Zurich
+Brussels
+Lisbon
+Geneva
+New York John F. Kennedy
+Dubai International
+Dublin
+Copenhagen
+Berlin Brandenburg
+Vienna
+Milan Malpensa
+Istanbul
+Stockholm Arlanda
+Athens
+Los Angeles
+Doha Hamad International
+Toronto Pearson
+Chicago O’Hare
+Abu Dhabi
+Casablanca
+Miami
+Hong Kong
+Washington Dulles
+Tokyo Narita
+Shanghai Pudong
+Montreal Trudeau
+Bangkok Suvarnabhumi
+São Paulo Guarulhos
+Riyadh King Khalid
+Seoul Incheon
+San Francisco
+Venice Marco Polo
+Moscow Sheremetyevo
+Birmingham
+Manchester
+Helsinki
+Oslo Gardermoen
+Tel Aviv Ben Gurion
+Cape Town
+Kuala Lumpur
+Mexico City
+Perth
+Sydney
+Singapore Changi
+Melbourne
+Auckland
+Beijing Capital
+Shanghai Pudong
+Delhi Indira Gandhi
+Mumbai Chhatrapati Shivaji
+Sao Paulo Guarulhos
+Hong Kong International
+Vancouver International
+Las Vegas
+Seattle-Tacoma
+Dallas/Fort Worth
+Seattle-Tacoma
+Lagos
+Abidjan
+Cairo
+Ho Chi Minh City
+Johannesburg
+Lima
+Shanghai Pudong
+Mexico City
+Rio de Janeiro Galeão
+Lagos Murtala Muhammed
+Dallas Fort Worth
+Kigali
+Buenos Aires
+Zanzibar
+Accra
+Doha Hamad
+Punta Cana
+Rio de Janeiro
+Cancun
+San Salvador
+Montevideo
+Bucharest
+Warsaw
+Abuja
+Alexandria
+Kinshasa
+Bucharest
+Sharm El Sheikh
+Buenos Aires
+Cape Town
+Zagreb
